@@ -119,7 +119,3 @@ STATIC_URL = "/static/"
 django_heroku.settings(locals())
 
 
-# Heroku: Update database configuration from $DATABASE_URL.
-import dj_database_url
-db_from_env = dj_databa se_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
