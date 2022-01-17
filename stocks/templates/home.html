@@ -1,0 +1,20 @@
+{% extends  'base.html'%}
+
+{% block content %}
+
+<h1> hello </h1>
+<br>
+ 
+
+{% if api %}
+    {% if api == "Error..." %}
+         There was a problem with your  symbol , please try again ...
+    {% else %}
+      <h1>  <i> current price:  </i> {{ api.c}} </h1>
+    {% endif %}
+    {% for key , value in api.items %}
+        {{key}} : {{value}} <br/>
+        {% endfor %}
+{% endif %}
+
+{% endblock %}
