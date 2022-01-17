@@ -4,17 +4,34 @@
 
 <h1> hello </h1>
 <br>
- 
+  {% if ticker %}
+       {{ ticker }}
+  {% endif %}
 
 {% if api %}
     {% if api == "Error..." %}
          There was a problem with your  symbol , please try again ...
     {% else %}
       <h1>  <i> current price:  </i> {{ api.c}} </h1>
-    {% endif %}
+      
+    </br> 
+    
+      <ul> 
+        <li>        Change : {{api.d}}   </li>
+        <li>        Percent change : {{ api.dp }} </li>
+        <li>        High price of the day : {{ api.h }}  </li>
+        <li>        Low price of the day  : {{ api.l }}  </li>
+        <li>        Open price of the day :  {{ api.o }} </li>
+        <li>        Previous close price  : {{ api.pc }}  </li>
+     
+      </ul>
+
+      
+      {% endif %}
     {% for key , value in api.items %}
         {{key}} : {{value}} <br/>
-        {% endfor %}
+    {% endfor %}
+
 {% endif %}
 
 {% endblock %}
