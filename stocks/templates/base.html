@@ -23,7 +23,9 @@
             <li class="nav-item">
               <a class="nav-link" href="{% url 'about' %}">About</a>
             </li>
-          
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'add_stock' %}"> Add Stock </a>
+            </li>
           </ul>
           <form class="d-flex" action="{% url 'home' %}" method="POST">
             {% csrf_token %}

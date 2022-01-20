@@ -14,7 +14,7 @@ def home(request):
     if request.method == 'POST':
         ticker = request.POST['ticker']
         ticker = ticker.upper()
-       
+
         url = "https://finnhub.io/api/v1/quote?symbol=" + ticker + "&token=" + token
         api_request = requests.get(url)
         print(url)
@@ -27,8 +27,10 @@ def home(request):
     else:
         return render(request, 'home.html', {'ticker': "Enter a stock symbol !"})
 
-    
-
 
 def about(request):
     return render(request, 'about.html', {})
+
+
+def add_stock(request):
+    return render(request, 'add_stock.html', {})
