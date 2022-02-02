@@ -2,6 +2,31 @@
 
 {% block content %}
 
-<h1> Add Vehicle ... </h1>
-
+<h1>   Vehicles   </h1>
+{% for key , value in api.items %}
+{{key}} : {{value}} <br/>
+{% endfor %}
+<div>
+    <form action="/add-vehicle" method="post">
+        <div class="form-group"> 
+          <label for="exampleInputname"> name </label>
+          <input type="text" class="form-control" id="exampleInputName"  name="name"  aria-describedby="nameHelp" placeholder="Enter name">
+          <small id="nameHelp" class="form-text text-muted"> enter name of vehicle </small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputColor"> color </label>
+          <input type="text" class="form-control" id="exampleInputColor"  name="color"  placeholder="color">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputModel"> model </label>
+            <input type="text" class="form-control" id="exampleInputModel"  name="model"  placeholder="model">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPrice"> price </label>
+            <input type="text" class="form-control" id="exampleInputPrice"  name="price" placeholder="price">
+          </div>
+          <br>
+        <button type="submit" class="btn btn-primary"> Submit </button>
+      </form>
+</div>
 {% endblock %}
