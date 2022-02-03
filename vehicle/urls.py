@@ -11,7 +11,8 @@ urlpatterns = [
 
    path('rental', views.rental , name="rental"),
 
-   path('add_vehicle' , views.add_vehicle , name= "add_vehicle"),
+   path('delete/<vehicle_id>',    views.delete_vehicle,  name="delete_vehicle"),
 
-   path('add_rental' , views.add_rental , name= "add_rental"),
+   path('delete/<rental_id>',    views.delete_rental,  name="delete_rental"),
+ 
 ]

@@ -3,11 +3,37 @@
 {% block content %}
 
 <h1>   Vehicles   </h1>
-{% for key , value in api.items %}
-{{key}} : {{value}} <br/>
-{% endfor %}
-<div>
-    <form action="/add-vehicle" method="post">
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">name</th>
+      <th scope="col">color</th>
+      <th scope="col">model</th>
+      <th scope="col">price</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in vehicles %}
+    <tr>
+      <th scope="row"> {{ item.id }}</th>
+     
+      <td> {{ item.name }} </td>
+      <td> {{ item.color }} </td>
+      <td> {{ item.model }} </td>
+      <td> {{ item.price }} </td>
+      <td>  <a href="{% url 'delete_vehicle' item.id %}"> delete </a>  </td>
+    </tr>
+  </br>
+    {% endfor %}
+
+  </tbody>
+</table>
+  
+
+    <form action="/vehicle" method="post">
+      {% csrf_token %}
         <div class="form-group"> 
           <label for="exampleInputname"> name </label>
           <input type="text" class="form-control" id="exampleInputName"  name="name"  aria-describedby="nameHelp" placeholder="Enter name">
@@ -23,10 +49,11 @@
           </div>
           <div class="form-group">
             <label for="exampleInputPrice"> price </label>
-            <input type="text" class="form-control" id="exampleInputPrice"  name="price" placeholder="price">
+            <input type="number" class="form-control" id="exampleInputPrice"  name="price" placeholder="price">
           </div>
           <br>
         <button type="submit" class="btn btn-primary"> Submit </button>
       </form>
-</div>
+ 
+<br/>
 {% endblock %}
